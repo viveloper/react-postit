@@ -34,8 +34,6 @@ function Memo({
     closeMemo(id);
   };
 
-  console.log('render Memo Component');
-
   return (
     <div className="memo" style={{ left, top, zIndex }}>
       <div className="header" onMouseDown={handleHeaderMouseDown}>
@@ -57,4 +55,4 @@ function Memo({
   );
 }
 
-export default React.memo(Memo);
+export default Memo;

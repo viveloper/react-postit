@@ -70,39 +70,33 @@ function App() {
     setMemoList([...memoList, newMemo]);
   };
 
-  const changeText = useCallback(
-    (memoId, text) => {
-      // 메모의 내용 변경
-      setMemoList(
-        memoList.map((memo) =>
-          memo.id === memoId
-            ? {
-                ...memo,
-                text,
-              }
-            : memo
-        )
-      );
-    },
-    [memoList]
-  );
+  const changeText = (memoId, text) => {
+    // 메모의 내용 변경
+    setMemoList(
+      memoList.map((memo) =>
+        memo.id === memoId
+          ? {
+              ...memo,
+              text,
+            }
+          : memo
+      )
+    );
+  };
 
-  const placeOnTop = useCallback(
-    (memoId) => {
-      // 해당 메모를 최상단으로 배치 (z-index 최대)
-      setMemoList(
-        memoList.map((memo) =>
-          memo.id === memoId
-            ? {
-                ...memo,
-                zIndex: Math.max(...memoList.map((memo) => memo.zIndex)) + 1,
-              }
-            : memo
-        )
-      );
-    },
-    [memoList]
-  );
+  const placeOnTop = (memoId) => {
+    // 해당 메모를 최상단으로 배치 (z-index 최대)
+    setMemoList(
+      memoList.map((memo) =>
+        memo.id === memoId
+          ? {
+              ...memo,
+              zIndex: Math.max(...memoList.map((memo) => memo.zIndex)) + 1,
+            }
+          : memo
+      )
+    );
+  };
 
   const moveMemo = (mouseEvent) => {
     // 해당 메모의 위치 변경
@@ -139,15 +133,10 @@ function App() {
     });
   };
 
-  const closeMemo = useCallback(
-    (memoId) => {
-      // 해당 메모 제거
-      setMemoList(memoList.filter((memo) => memo.id !== memoId));
-    },
-    [memoList]
-  );
-
-  console.log('render App Component');
+  const closeMemo = (memoId) => {
+    // 해당 메모 제거
+    setMemoList(memoList.filter((memo) => memo.id !== memoId));
+  };
 
   return (
     <div
